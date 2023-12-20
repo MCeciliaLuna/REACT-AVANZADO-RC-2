@@ -1,39 +1,17 @@
-import React, { useState } from 'react'
-import { TaskItem } from './TaskItem'
-import { TaskAdd } from './TaskAdd'
+import { AddTask } from "./AddTask";
+import { TasksCards } from "./TasksCards";
+import { dataTask } from "../../data/TasksExamples";
 
-export const Task = ({ taskData }) => {
-
-    const [newTask, setNewTask] = useState('');
-    const [addDataCard, setAddDataCard] = useState(taskData)
-
-    const onClickAdd = () => {
-
-        const newTaskObj = {
-            id: addDataCard[addDataCard.length - 1].id + 1,
-            taskTitle:newTask
-        }
-
-        setAddDataCard([
-            ...addDataCard,
-            newTaskObj
-        ]);
-    }
-
-
+export const Task = () => {
   return (
-    <div className="container py-5" id="featured-3">
-        <h2 className="pb-2 border-bottom text-white">MIS TAREAS</h2>
-        <div className="row py-5">
-            { addDataCard.map( (data) => (
-            <TaskItem dataTaskItem={data}/>
-            ))}
-        </div>
-        <TaskAdd 
-            onSetTask = { setNewTask }
-            newTask={newTask}
-            onClickAdd={onClickAdd}
-        />
+    <div className="container py-5 text-dark" id="featured-3">
+      <h2 className="pb-2 border-bottom">MIS TAREAS</h2>
+      <div className="row py-5">
+        {dataTask.map((item) => (
+          <TasksCards key={item.id} data={item} />
+        ))}
+      </div>
+      <AddTask />
     </div>
-  )
-}
+  );
+};

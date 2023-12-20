@@ -1,16 +1,7 @@
-
-import { TaskHead } from './TaskHead';
-import './styles/index.css';
-
-
-
+import { Task } from "../src/components/task/Task";
 
 const App = () => {
- 
-  
-  return (
-    <TaskHead />
-  );
-}
+  return <Task />;
+};
 
-export default App
+export default App;
