@@ -1,4 +1,5 @@
-export const TasksCards = ({ data }) => {
+export const TasksCards = ({ data, deleteTask }) => {
+
   return (
     <div className="col-sm-3 gy-3 gx-3">
       <div className="card bg-warning">
@@ -9,7 +10,7 @@ export const TasksCards = ({ data }) => {
           <p className="card-text">
             <i>{data.taskTitle}</i>
           </p>
-          <button type="button" className="btn btn-sm btn-danger">
+          <button type="button" className="btn btn-sm btn-danger" onClick={(id) => deleteTask(data.id)}>
             Eliminar
           </button>
         </div>

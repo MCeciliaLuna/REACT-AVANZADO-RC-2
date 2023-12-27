@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-export const AddTask = () => {
+export const AddTask = ({ onClickValue }) => {
   const [valueTask, setValueTask] = useState("");
-  const onChangeValue = (event) => {
-    setValueTask(event.target.value);
-  };
+
+  const onChangeValueTask = () => {
+    setValueTask(event.target.value)
+  }
 
   return (
     <>
@@ -14,13 +15,17 @@ export const AddTask = () => {
           className="form-control"
           placeholder="Agregar una tarea"
           // value={}
-          onChange={onChangeValue}
+          onChange={onChangeValueTask}
         />
       </div>
       <div className="mb-3 col-5">
-        <button className="btn btn-success">AGREGAR</button>
+        <button
+          onClick={() => onClickValue(valueTask)}
+          className="btn btn-success"
+        >
+          AGREGAR
+        </button>
       </div>
-      <p>{valueTask}</p>
-    </>
+      </>
   );
 };
